@@ -12,18 +12,18 @@ public class Organizer {
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name ="Id")
-	private long id;
+	private long OrgId;
 	
 	private String orgName;
 	private String orgEmail;
 	private String orgPass;
 	private String eventName;
 	private String role;
-	public long getId() {
-		return id;
+	public long getOrgId() {
+		return OrgId;
 	}
-	public void setId(long id) {
-		this.id = id;
+	public void setOrgId(long OrgId) {
+		this.OrgId = OrgId;
 	}
 	public String getOrgName() {
 		return orgName;
@@ -59,13 +59,13 @@ public class Organizer {
 	
 	@Override
 	public String toString() {
-		return "Organizer [id=" + id + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass
+		return "Organizer [OrgId=" + OrgId + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass
 				+ ", eventName=" + eventName + ", role=" + role + "]";
 	}
 	
 	public Organizer(long id, String orgName, String orgEmail, String orgPass, String eventName, String role) {
 		super();
-		this.id = id;
+		this.OrgId = OrgId;
 		this.orgName = orgName;
 		this.orgEmail = orgEmail;
 		this.orgPass = orgPass;
