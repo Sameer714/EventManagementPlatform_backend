@@ -11,19 +11,20 @@ public class Organizer {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name ="Id")
-	private long OrgId;
+    @Column(name ="OrgId")
+	private long orgId;
 	
 	private String orgName;
 	private String orgEmail;
 	private String orgPass;
 	private String eventName;
 	private String role;
+	
 	public long getOrgId() {
-		return OrgId;
+		return orgId;
 	}
-	public void setOrgId(long OrgId) {
-		this.OrgId = OrgId;
+	public void setOrgId(long orgId) {
+		this.orgId = orgId;
 	}
 	public String getOrgName() {
 		return orgName;
@@ -59,19 +60,20 @@ public class Organizer {
 	
 	@Override
 	public String toString() {
-		return "Organizer [OrgId=" + OrgId + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass
+		return "Organizer [orgId=" + orgId + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass
 				+ ", eventName=" + eventName + ", role=" + role + "]";
 	}
 	
-	public Organizer(long id, String orgName, String orgEmail, String orgPass, String eventName, String role) {
+	public Organizer(long orgId, String orgName, String orgEmail, String orgPass, String eventName, String role) {
 		super();
-		this.OrgId = OrgId;
+		this.orgId = orgId;
 		this.orgName = orgName;
 		this.orgEmail = orgEmail;
 		this.orgPass = orgPass;
 		this.eventName = eventName;
 		this.role = role;
 	}
+	
 	public Organizer() {
 		super();
 		// TODO Auto-generated constructor stub

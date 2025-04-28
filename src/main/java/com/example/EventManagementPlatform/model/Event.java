@@ -22,6 +22,7 @@ public class Event {
 	private int Capacity;
 	private int Duration;
 	private Long getOrgIdLong;
+	
 	public Long getEventId() {
 		return EventId;
 	}
@@ -64,12 +65,14 @@ public class Event {
 	public void setGetOrgIdLong(Long getOrgIdLong) {
 		this.getOrgIdLong = getOrgIdLong;
 	}
+	
 	@Override
 	public String toString() {
 		return "Event [EventId=" + EventId + ", EventName=" + EventName + ", EventDate=" + EventDate + ", Location="
 				+ Location + ", Capacity=" + Capacity + ", Duration=" + Duration + ", getOrgIdLong=" + getOrgIdLong
 				+ "]";
 	}
+	
 	public Event(Long eventId, String eventName, LocalDateTime eventDate, String location, int capacity, int duration,
 			Long getOrgIdLong) {
 		super();
@@ -81,6 +84,7 @@ public class Event {
 		Duration = duration;
 		this.getOrgIdLong = getOrgIdLong;
 	}
+	
 	public Event() {
 		super();
 		// TODO Auto-generated constructor stub

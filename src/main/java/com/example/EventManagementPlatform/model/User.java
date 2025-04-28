@@ -11,24 +11,25 @@ public class User {
 	
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
-    @Column(name ="Id")
-	private long Id;
+    @Column(name ="UserId")
+	private long userId;
 	
 	private String name;
 	private String email;
 	private String pass;
 	private String role;
+	
 	public String getRole() {
 		return role;
 	}
 	public void setRole(String role) {
 		this.role = role;
 	}
-	public long getId() {
-		return Id;
+	public long getUserId() {
+		return userId;
 	}
-	public void setId(long id) {
-		Id = id;
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 	public String getName() {
 		return name;
@@ -49,18 +50,21 @@ public class User {
 		this.pass = pass;
 	}
 	
-	public User(long id, String name, String email, String pass, String role) {
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", pass=" + pass + ", role=" + role
+				+ "]";
+	}
+	
+	public User(long userId, String name, String email, String pass, String role) {
 		super();
-		Id = id;
+		this.userId = userId;
 		this.name = name;
 		this.email = email;
 		this.pass = pass;
 		this.role = role;
 	}
-	@Override
-	public String toString() {
-		return "User [Id=" + Id + ", name=" + name + ", email=" + email + ", pass=" + pass + ", role=" + role + "]";
-	}
+	
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
