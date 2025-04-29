@@ -6,12 +6,12 @@ import org.springframework.stereotype.Service;
 import com.example.EventManagementPlatform.exception.DuplicateUsernameException;
 import com.example.EventManagementPlatform.model.Admin;
 import com.example.EventManagementPlatform.others.PasswordChecker;
-import com.example.EventManagementPlatform.repository.adminRepo;
+import com.example.EventManagementPlatform.repository.AdminRepo;
 
 @Service
 public class AdminService {
 	@Autowired
-	private adminRepo adminRepo;
+	private AdminRepo adminRepo;
 	
 	
 	public Admin getAdminInfo(long adminId) {
@@ -84,7 +84,6 @@ public class AdminService {
 		throw new DuplicateUsernameException("Email Not Registered!", "Not Found:");
 	}
 }
-
 		
 //		Admin a = adminRepo.save(admin);
 //		return a;

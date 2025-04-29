@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 import com.example.EventManagementPlatform.model.Organizer;
 
 @Repository
-public interface organizerRepo extends JpaRepository<Organizer, Long> {
+public interface OrganizerRepo extends JpaRepository<Organizer, Long> {
 	List<Organizer> findAllByStatus(String status);
 	List<Organizer> findAll();
 

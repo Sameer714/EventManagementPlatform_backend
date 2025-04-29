@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository;
 import com.example.EventManagementPlatform.model.Event;
 
 @Repository
-public interface eventRepo extends JpaRepository<Event, Long>{
+public interface EventRepo extends JpaRepository<Event, Long>{
 
 }

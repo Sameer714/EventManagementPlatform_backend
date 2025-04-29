@@ -108,8 +108,4 @@ public class Event {
 				+ location + ", capacity=" + capacity + ", duration=" + duration + ", eventStatus=" + eventStatus
 				+ ", organizerId=" + organizerId + "]";
 	}
-
-	
-
-    
 }
