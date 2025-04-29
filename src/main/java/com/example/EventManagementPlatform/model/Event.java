@@ -2,91 +2,114 @@ package com.example.EventManagementPlatform.model;
 
 import java.time.LocalDateTime;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 @Entity
 public class Event {
-	
-	@Id
-    @GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column(name = "EventId")
-	private Long EventId;
-	
-	private String EventName;
-	private LocalDateTime EventDate;
-	private String Location;
-	private int Capacity;
-	private int Duration;
-	private Long getOrgIdLong;
-	
-	public Long getEventId() {
-		return EventId;
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "event_id")
+    private Long eventId;
+
+    private String eventName;
+    private LocalDateTime eventDate;
+    private String location;
+    private int capacity;
+    private int duration;
+    private String eventStatus;
+
+    @Column(name = "organizer_id")
+    private Long organizerId; 
+
+    public Long getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(Long eventId) {
+        this.eventId = eventId;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
+    }
+
+    public LocalDateTime getEventDate() {
+        return eventDate;
+    }
+
+    public void setEventDate(LocalDateTime eventDate) {
+        this.eventDate = eventDate;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
+    }
+
+    public int getDuration() {
+        return duration;
+    }
+
+    public void setDuration(int duration) {
+        this.duration = duration;
+    }
+    
+    public String getEventStatus() {
+		return eventStatus;
 	}
-	public void setEventId(Long eventId) {
-		EventId = eventId;
+
+	public void setEventStatus(String eventStatus) {
+		this.eventStatus = eventStatus;
 	}
-	public String getEventName() {
-		return EventName;
+
+	public Long getOrganizerId() {
+        return organizerId;
+    }
+
+    public void setOrganizerId(Long organizerId) {
+        this.organizerId = organizerId;
+    }
+
+    public Event() {
+    }
+
+	public Event(Long eventId, String eventName, LocalDateTime eventDate, String location, int capacity, int duration,
+			String eventStatus, Long organizerId) {
+		super();
+		this.eventId = eventId;
+		this.eventName = eventName;
+		this.eventDate = eventDate;
+		this.location = location;
+		this.capacity = capacity;
+		this.duration = duration;
+		this.eventStatus = eventStatus;
+		this.organizerId = organizerId;
 	}
-	public void setEventName(String eventName) {
-		EventName = eventName;
-	}
-	public LocalDateTime getEventDate() {
-		return EventDate;
-	}
-	public void setEventDate(LocalDateTime eventDate) {
-		EventDate = eventDate;
-	}
-	public String getLocation() {
-		return Location;
-	}
-	public void setLocation(String location) {
-		Location = location;
-	}
-	public int getCapacity() {
-		return Capacity;
-	}
-	public void setCapacity(int capacity) {
-		Capacity = capacity;
-	}
-	public int getDuration() {
-		return Duration;
-	}
-	public void setDuration(int duration) {
-		Duration = duration;
-	}
-	public Long getGetOrgIdLong() {
-		return getOrgIdLong;
-	}
-	public void setGetOrgIdLong(Long getOrgIdLong) {
-		this.getOrgIdLong = getOrgIdLong;
-	}
-	
+
 	@Override
 	public String toString() {
-		return "Event [EventId=" + EventId + ", EventName=" + EventName + ", EventDate=" + EventDate + ", Location="
-				+ Location + ", Capacity=" + Capacity + ", Duration=" + Duration + ", getOrgIdLong=" + getOrgIdLong
-				+ "]";
+		return "Event [eventId=" + eventId + ", eventName=" + eventName + ", eventDate=" + eventDate + ", location="
+				+ location + ", capacity=" + capacity + ", duration=" + duration + ", eventStatus=" + eventStatus
+				+ ", organizerId=" + organizerId + "]";
 	}
+
 	
-	public Event(Long eventId, String eventName, LocalDateTime eventDate, String location, int capacity, int duration,
-			Long getOrgIdLong) {
-		super();
-		EventId = eventId;
-		EventName = eventName;
-		EventDate = eventDate;
-		Location = location;
-		Capacity = capacity;
-		Duration = duration;
-		this.getOrgIdLong = getOrgIdLong;
-	}
-	
-	public Event() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
+
+    
 }

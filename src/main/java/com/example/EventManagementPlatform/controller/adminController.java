@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.EventManagementPlatform.exception.DuplicateUsernameException;
 import com.example.EventManagementPlatform.model.Admin;
-import com.example.EventManagementPlatform.others.pass;
 import com.example.EventManagementPlatform.service.adminService;
 
 

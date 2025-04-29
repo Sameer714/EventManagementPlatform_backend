@@ -85,7 +85,6 @@ public class adminService {
 	}
 }
 
-
 		
 //		Admin a = adminRepo.save(admin);
 //		return a;

@@ -17,8 +17,8 @@ public class Organizer {
 	private String orgName;
 	private String orgEmail;
 	private String orgPass;
-	private String eventName;
 	private String role;
+	private String orgStatus;
 	
 	public long getOrgId() {
 		return orgId;
@@ -44,12 +44,6 @@ public class Organizer {
 	public void setOrgPass(String orgPass) {
 		this.orgPass = orgPass;
 	}
-	public String getEventName() {
-		return eventName;
-	}
-	public void setEventName(String eventName) {
-		this.eventName = eventName;
-	}
 	
 	public String getRole() {
 		return role;
@@ -58,22 +52,28 @@ public class Organizer {
 		this.role = role;
 	}
 	
+	public String getOrgStatus() {
+		return orgStatus;
+	}
+	public void setOrgStatus(String orgStatus) {
+		this.orgStatus = orgStatus;
+	}
+	
+	
 	@Override
 	public String toString() {
 		return "Organizer [orgId=" + orgId + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass
-				+ ", eventName=" + eventName + ", role=" + role + "]";
+				+ ", role=" + role + ", orgStatus=" + orgStatus + "]";
 	}
-	
-	public Organizer(long orgId, String orgName, String orgEmail, String orgPass, String eventName, String role) {
+	public Organizer(long orgId, String orgName, String orgEmail, String orgPass, String role, String orgStatus) {
 		super();
 		this.orgId = orgId;
 		this.orgName = orgName;
 		this.orgEmail = orgEmail;
 		this.orgPass = orgPass;
-		this.eventName = eventName;
 		this.role = role;
+		this.orgStatus = orgStatus;
 	}
-	
 	public Organizer() {
 		super();
 		// TODO Auto-generated constructor stub

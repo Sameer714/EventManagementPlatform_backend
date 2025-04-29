@@ -15,15 +15,31 @@ public class User {
 	private long userId;
 	
 	private String name;
+	private String userName;
 	private String email;
 	private String pass;
 	private String role;
+	private String status;
 	
 	public String getRole() {
 		return role;
 	}
 	public void setRole(String role) {
 		this.role = role;
+	}
+	
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	public long getUserId() {
 		return userId;
@@ -50,21 +66,22 @@ public class User {
 		this.pass = pass;
 	}
 	
-	@Override
-	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", email=" + email + ", pass=" + pass + ", role=" + role
-				+ "]";
-	}
 	
-	public User(long userId, String name, String email, String pass, String role) {
+	public User(long userId, String name, String userName, String email, String pass, String role, String status) {
 		super();
 		this.userId = userId;
 		this.name = name;
+		this.userName = userName;
 		this.email = email;
 		this.pass = pass;
 		this.role = role;
+		this.status = status;
 	}
-	
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", name=" + name + ", userName=" + userName + ", email=" + email + ", pass="
+				+ pass + ", role=" + role + ", status=" + status + "]";
+	}
 	public User() {
 		super();
 		// TODO Auto-generated constructor stub
