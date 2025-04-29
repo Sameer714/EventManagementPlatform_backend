@@ -5,11 +5,11 @@ import org.springframework.stereotype.Service;
 
 import com.example.EventManagementPlatform.exception.DuplicateUsernameException;
 import com.example.EventManagementPlatform.model.Admin;
-import com.example.EventManagementPlatform.others.passwordChecker;
+import com.example.EventManagementPlatform.others.PasswordChecker;
 import com.example.EventManagementPlatform.repository.adminRepo;
 
 @Service
-public class adminService {
+public class AdminService {
 	@Autowired
 	private adminRepo adminRepo;
 	
@@ -41,7 +41,7 @@ public class adminService {
 				throw new DuplicateUsernameException("Enter Password!", "Invalid : ");
 
 			} else {
-				passwordChecker passwordChecker = new passwordChecker();
+				PasswordChecker passwordChecker = new PasswordChecker();
 				if (passwordChecker.isValid(a.getPass())) {
 					a.setPass(a.getPass());
 //					u.setPass(passwordEncoder.encode(user.getPassword()));
@@ -70,7 +70,7 @@ public class adminService {
 			a.setEmail(a.getEmail());
 			a.setRole("ROLE_" + a.getRole());
 			if (!a.getPass().isEmpty()) {
-				passwordChecker passwordChecker = new passwordChecker();
+				PasswordChecker passwordChecker = new PasswordChecker();
 				if (passwordChecker.isValid(a.getPass())) {
 					a.setPass(a.getPass());
 					return adminRepo.save(a);

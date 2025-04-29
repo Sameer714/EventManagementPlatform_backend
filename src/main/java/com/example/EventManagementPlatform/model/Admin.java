@@ -20,7 +20,6 @@ public class Admin {
 	private String pass;
 	private String role;
 	private String status;
-
 	
 	public String getRole() {
 		return role;

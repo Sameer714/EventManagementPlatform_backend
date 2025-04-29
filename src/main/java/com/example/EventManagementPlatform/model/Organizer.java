@@ -59,7 +59,6 @@ public class Organizer {
 		this.orgStatus = orgStatus;
 	}
 	
-	
 	@Override
 	public String toString() {
 		return "Organizer [orgId=" + orgId + ", orgName=" + orgName + ", orgEmail=" + orgEmail + ", orgPass=" + orgPass

@@ -3,7 +3,7 @@ package com.example.EventManagementPlatform.others;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class passwordChecker {
+public class PasswordChecker {
 	
 	private String PASS_PATTERN = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,11}$";
 	private Pattern pattern = Pattern.compile(PASS_PATTERN);

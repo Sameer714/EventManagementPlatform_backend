@@ -12,16 +12,16 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.example.EventManagementPlatform.exception.DuplicateUsernameException;
 import com.example.EventManagementPlatform.model.Admin;
-import com.example.EventManagementPlatform.service.adminService;
+import com.example.EventManagementPlatform.service.AdminService;
 
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200") 
 @RequestMapping("/v1/api")
-public class adminController {
+public class AdminController {
 	
 	@Autowired
-	adminService adminService;
+	AdminService adminService;
 	
 	@PostMapping(value = "/createuser", produces = "application/json")
 	public ResponseEntity<Object> saveUser(@RequestBody Admin admin) {

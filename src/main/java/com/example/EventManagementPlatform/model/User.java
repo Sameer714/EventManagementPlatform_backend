@@ -66,7 +66,6 @@ public class User {
 		this.pass = pass;
 	}
 	
-	
 	public User(long userId, String name, String userName, String email, String pass, String role, String status) {
 		super();
 		this.userId = userId;

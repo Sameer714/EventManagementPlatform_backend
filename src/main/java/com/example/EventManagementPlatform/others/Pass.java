@@ -1,6 +1,6 @@
 package com.example.EventManagementPlatform.others;
 
-public class pass {
+public class Pass {
 	private String oldpass;
 	private String pass;
 	private String email;
@@ -19,7 +19,7 @@ public class pass {
 	public String getPass() {
 		return pass;
 	}
-	public pass(String oldpass, String pass, String email) {
+	public Pass(String oldpass, String pass, String email) {
 		super();
 		this.oldpass = oldpass;
 		this.pass = pass;
