@@ -23,10 +23,10 @@ public class UserService {
 		User isUserPresent = userRepo.findByEmail(user.getEmail());
 		if(isUserPresent == null) {
 			User u = new User();
-			u.setEmail(u.getEmail());
-			User isUsernmPresent = userRepo.findByuserName(u.getUserName());
+			u.setEmail(user.getEmail());
+			User isUsernmPresent = userRepo.findByuserName(user.getUserName());
 			if(isUsernmPresent == null) {
-				u.setUserName(u.getUserName());	
+				u.setUserName(user.getUserName());	
 			}else {
 				throw new DuplicateUsernameException("Username Already Exists", "Duplicate :");
 		}
@@ -39,14 +39,14 @@ public class UserService {
 			}
 			u.setRole("ROLE_" + user.getRole());
 			
-			if (u.getPass().isEmpty()) {
+			if (user.getPass().isEmpty()) {
 				throw new DuplicateUsernameException("Enter Password!", "Invalid : ");
 
 			} else {
 				PasswordChecker passwordChecker = new PasswordChecker();
-				if (passwordChecker.isValid(u.getPass())) {
-					u.setPass(u.getPass());
-					u.setName(u.getName());
+				if (passwordChecker.isValid(user.getPass())) {
+					u.setPass(user.getPass());
+					u.setName(user.getName());
 					return userRepo.save(u);
 				} else {
 					throw new DuplicateUsernameException("Password doesn't follow our criteria!", "Invalid : ");
@@ -65,17 +65,17 @@ public class UserService {
 		if (isUserPresent != null) {
 			User isusrnmPresent = userRepo.findByuserName(user.getUserName());
 			if (isusrnmPresent == null) {
-				u.setUserName(u.getUserName());
+				u.setUserName(user.getUserName());
 			} else {
-				u.setUserName(u.getUserName());
+				u.setUserName(user.getUserName());
 			}
 			
-			u.setEmail(u.getEmail());
-			u.setRole("ROLE_" + u.getRole());
+			u.setEmail(user.getEmail());
+			u.setRole("ROLE_" + user.getRole());
 			if (!u.getPass().isEmpty()) {
 				PasswordChecker passwordChecker = new PasswordChecker();
-				if (passwordChecker.isValid(u.getPass())) {
-					u.setPass(u.getPass());
+				if (passwordChecker.isValid(user.getPass())) {
+					u.setPass(user.getPass());
 					return userRepo.save(u);
 				} else {
 					u.setPass(u.getPass());

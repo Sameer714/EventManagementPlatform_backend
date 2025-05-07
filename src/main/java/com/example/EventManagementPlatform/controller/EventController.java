@@ -17,7 +17,7 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
-	@PostMapping
+	@PostMapping("/events")
 	public ResponseEntity<Object> saveEvent (@RequestBody Event event) {
 		try {
 			eventService.saveEvent(event);

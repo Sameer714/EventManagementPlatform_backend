@@ -12,26 +12,14 @@ public class EventService {
 	@Autowired
 	EventRepo eventRepo;
 	
-	public Event saveEvent (Event event) throws DuplicateUsernameException{
-		Event isEventNamePresent = eventRepo.findByEventName(event.getEventName());
-		if(isEventNamePresent == null) {
-			Event e = new Event();
-			e.setEventName(event.getEventName());
-			Event isEventGenuine = eventRepo.findByEventDateAndLocation(event.getEventDate(),event.getLocation());
-			if(isEventGenuine == null) {
-				e.setEventDate(event.getEventDate());
-				e.setLocation(event.getLocation());
-			}
-			else {
-				throw new DuplicateUsernameException("A event is already happeneing at same place on the same day!", "Duplicate :");
-			}
-			e.setCapacity(event.getCapacity());
-			e.setDuration(event.getDuration());
-			return eventRepo.save(e);
+	public Event saveEvent(Event event) throws DuplicateUsernameException {
+	    if (eventRepo.findByEventName(event.getEventName()) != null) {
+	        throw new DuplicateUsernameException("Event name already exists!", "Duplicate:");
+	    }
+	    if (eventRepo.findByEventDateAndLocation(event.getEventDate(), event.getLocation()) != null) {
+	        throw new DuplicateUsernameException("An event is already happening at the same place on the same day!", "Duplicate:");
+	    }
+	    return eventRepo.save(event);
+	}
 
-		}
-		else {
-			throw new DuplicateUsernameException("Username Already Exists", "Duplicate :");
-			}
-}
 }
