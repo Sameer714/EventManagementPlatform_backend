@@ -32,7 +32,9 @@ public class UserService {
 		}
 			if (user.getRole().equalsIgnoreCase("ADMIN")) {
 				u.setStatus("INACTIVE");
-			} else {
+			} else if (user.getRole().equalsIgnoreCase("Organizer")){
+				u.setStatus("INACTIVE");
+			}else {
 				u.setStatus("ACTIVE");
 			}
 			u.setRole("ROLE_" + user.getRole());
@@ -44,6 +46,7 @@ public class UserService {
 				PasswordChecker passwordChecker = new PasswordChecker();
 				if (passwordChecker.isValid(u.getPass())) {
 					u.setPass(u.getPass());
+					u.setName(u.getName());
 					return userRepo.save(u);
 				} else {
 					throw new DuplicateUsernameException("Password doesn't follow our criteria!", "Invalid : ");
