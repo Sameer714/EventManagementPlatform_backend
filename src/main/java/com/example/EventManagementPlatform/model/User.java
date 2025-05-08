@@ -1,5 +1,13 @@
 package com.example.EventManagementPlatform.model;
 
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -7,8 +15,13 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class User implements UserDetails {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
     @GeneratedValue(strategy= GenerationType.IDENTITY)
     @Column(name ="UserId")
@@ -76,13 +89,57 @@ public class User {
 		this.role = role;
 		this.status = status;
 	}
+	public User() {
+		// TODO Auto-generated constructor stub
+	}
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", name=" + name + ", userName=" + userName + ", email=" + email + ", pass="
-				+ pass + ", role=" + role + ", status=" + status + "]";
+		return "User [id=" + userId + ", name=" + name + ", userName=" + userName + ", pass=" + pass + ", email=" + email
+				+ ", role=" + role + "]";
 	}
-	public User() {
-		super();
-		// TODO Auto-generated constructor stub
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		List<GrantedAuthority> listRole = new ArrayList<GrantedAuthority>();
+		listRole.add(new SimpleGrantedAuthority(this.role));
+		return listRole;
+	}
+
+	@Override
+	public String getPassword() {
+		return pass;
+	}
+
+	@Override
+	public String getUsername() {
+		return userName;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		if (pass.isEmpty() || userName.isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
+	}
+
+	@Override
+	public boolean isEnabled() {
+		if (pass.isEmpty() || userName.isEmpty()) {
+			return false;
+		} else {
+			return true;
+		}
 	}
 }
