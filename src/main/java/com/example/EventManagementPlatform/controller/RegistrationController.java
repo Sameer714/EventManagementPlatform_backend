@@ -10,6 +10,7 @@ import com.example.EventManagementPlatform.service.RegistrationService;
 
 @RestController
 public class RegistrationController {
+	
 	@Autowired
 	RegistrationService registrationService;
 	

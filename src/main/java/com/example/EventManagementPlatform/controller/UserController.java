@@ -1,4 +1,4 @@
-package com.example.EventManagementPlatform.controller;
+ package com.example.EventManagementPlatform.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -16,7 +16,7 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	@PostMapping("/users")
+	@PostMapping(value = "/createuser", produces = "application/json")
 	public ResponseEntity<Object> saveAdmin(@RequestBody User user) {
 		try {
 			User saveAdmin = userService.saveAdmin(user);
