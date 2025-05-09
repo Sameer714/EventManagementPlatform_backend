@@ -27,6 +27,7 @@ public class EventController {
 	}
 	
 	@PostMapping("/events")
+	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_ORGANIZER')")
 	public ResponseEntity<Object> saveEvent (@RequestBody Event event) {
 		try {
 			eventService.saveEvent(event);

@@ -17,7 +17,5 @@ public class RegistrationController {
 	@PostMapping("/register")
 	public Registration registerToEvent (@RequestBody Registration registration) {
 		return registrationService.register(registration);
-		
 	}
-
 }

@@ -29,18 +29,17 @@ public class AuthController {
         User user = userRepo.findByEmail(request.getGmail());
         if (user != null) {
             if (user.getPassword().equals(request.getPassw())) {
-                String token = jwtHelper.generateToken(user);  // ✅ Use injected helper
+                String token = jwtHelper.generateToken(user);  
                 response.setJwtoken(token);
                 response.setUsernm(user.getUserName());
                 response.setRole(user.getRole());
                 response.setId(user.getUserId());
             } else {
-                response.setUsernm(user.getUsername());  // could add "invalid password" marker here
+                response.setUsernm(user.getUsername()); 
             }
         } else {
-            response.setUsernm(request.getGmail());  // could add "user not found" marker
+            response.setUsernm(request.getGmail());  
         }
-
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 }
