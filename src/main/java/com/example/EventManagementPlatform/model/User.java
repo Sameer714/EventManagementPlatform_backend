@@ -16,7 +16,6 @@ import jakarta.persistence.Id;
 
 @Entity
 public class User implements UserDetails {
-	
 	/**
 	 * 
 	 */

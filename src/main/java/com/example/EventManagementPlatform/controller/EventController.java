@@ -21,7 +21,7 @@ public class EventController {
 	@Autowired
 	EventService eventService;
 	
-	@GetMapping("/getallevents")
+	@GetMapping("/getAllEvents")
 	public List<Event> getAllEvents(){
 		return eventService.getAllEvents();
 	}
@@ -37,5 +37,5 @@ public class EventController {
 					.body("{\"message\": \"" + e.getMessage() + "\" , \"Success\": \"" + "false" + "\"}");
 		}
 		return null;
-	}
+	}	
 }

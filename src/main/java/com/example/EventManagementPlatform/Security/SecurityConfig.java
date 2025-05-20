@@ -38,8 +38,8 @@ public class SecurityConfig {
 	            .csrf(csrf -> csrf.disable())  // Disable CSRF
 	            .authorizeHttpRequests(auth -> auth
 	                .requestMatchers(HttpMethod.POST, "/createuser").permitAll() // Allow signup
-	                .requestMatchers(HttpMethod.POST, "/v1/api/otp/send").permitAll() // Allow OTP requests
-	                .requestMatchers(HttpMethod.GET, "/getallevents").permitAll() 
+	                .requestMatchers(HttpMethod.POST, "/send").permitAll() // Allow OTP requests
+	                .requestMatchers(HttpMethod.GET, "/getAllEvents").permitAll() 
 	                .requestMatchers("/auth/login").permitAll() // Allow login
 	                .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll() // Allow preflight requests
 	                .anyRequest().authenticated()

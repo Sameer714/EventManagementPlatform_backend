@@ -7,5 +7,4 @@ import com.example.EventManagementPlatform.model.Registration;
 
 @Repository
 public interface RegRepo extends JpaRepository<Registration, Long> {
-	
 }
