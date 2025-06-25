@@ -1,6 +1,7 @@
 package com.example.EventManagementPlatform.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -24,6 +25,11 @@ public class EventController {
 	@GetMapping("/getAllEvents")
 	public List<Event> getAllEvents(){
 		return eventService.getAllEvents();
+	}
+	
+	@GetMapping("/getEvent")
+	public Optional<Event> getEvent(Long id){
+		return eventService.getEvent(id);
 	}
 	
 	@PostMapping("/events")

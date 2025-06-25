@@ -1,5 +1,7 @@
 package com.example.EventManagementPlatform.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,9 +14,12 @@ public class RegistrationService {
 	RegRepo regRepo;
 	
 	public Registration register (Registration registration) {
-		Registration r = new Registration();
-		r.setEventId(registration.getEventId());
-		r.setUserId(registration.getUserId());
-		return regRepo.save(r);
+		 Optional<Registration> existing = regRepo.findByUserIdAndEventId(registration.getUserId(), registration.getEventId());
+		    
+		    if (existing.isPresent()) {
+		        throw new IllegalStateException("User already registered for this event");
+		    }
+
+		    return regRepo.save(registration);
 	}
 }

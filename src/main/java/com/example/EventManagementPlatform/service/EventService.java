@@ -1,6 +1,7 @@
 package com.example.EventManagementPlatform.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,5 +27,9 @@ public class EventService {
 	
 	public List<Event> getAllEvents (){
 		return eventRepo.findAll();
+	}
+
+	public Optional<Event> getEvent(Long id) {
+		return eventRepo.findById(id);
 	}
 }
