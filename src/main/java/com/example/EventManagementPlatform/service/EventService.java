@@ -29,7 +29,9 @@ public class EventService {
 		return eventRepo.findAll();
 	}
 
-	public Optional<Event> getEvent(Long id) {
-		return eventRepo.findById(id);
+	public Event getEvent(Long id) throws DuplicateUsernameException {
+	    return eventRepo.findById(id)
+	    	.orElseThrow(() -> new DuplicateUsernameException("Event not found with ID:" + id, "Invalid : "));
 	}
+
 }

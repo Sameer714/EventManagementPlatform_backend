@@ -1,12 +1,14 @@
 package com.example.EventManagementPlatform.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.EventManagementPlatform.exception.DuplicateUsernameException;
 import com.example.EventManagementPlatform.model.Registration;
 import com.example.EventManagementPlatform.service.RegistrationService;
 
@@ -20,7 +22,7 @@ public class RegistrationController {
 	@PostMapping("/register")
 	@PreAuthorize("hasAnyRole('ROLE_ADMIN','ROLE_ORGANIZER','ROLE_USER')")
 
-	public Registration registerToEvent (@RequestBody Registration registration) {
+	public ResponseEntity<Object> registerToEvent (@RequestBody Registration registration) throws DuplicateUsernameException {
 		return registrationService.register(registration);
 	}
-}
+} 

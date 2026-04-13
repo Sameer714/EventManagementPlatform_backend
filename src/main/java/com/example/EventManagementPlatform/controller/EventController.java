@@ -1,8 +1,6 @@
 package com.example.EventManagementPlatform.controller;
 
 import java.util.List;
-import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -28,7 +26,7 @@ public class EventController {
 	}
 	
 	@GetMapping("/getEvent")
-	public Optional<Event> getEvent(Long id){
+	public Event getEvent(Long id) throws DuplicateUsernameException{
 		return eventService.getEvent(id);
 	}
 	

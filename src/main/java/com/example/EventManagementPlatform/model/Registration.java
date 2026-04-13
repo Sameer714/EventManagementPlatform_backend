@@ -44,6 +44,5 @@ public class Registration {
 	}
 	public Registration() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 }

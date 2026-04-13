@@ -23,8 +23,7 @@ public class GlobalInput {
 		}
 		public void setNewPass(String newPass) {
 			this.newPass = newPass;
-		}
-		
+		}	
 	}
 	
 	public class Messg {
@@ -130,5 +129,4 @@ public class GlobalInput {
 			super();
 		}
 	}
-
 }
